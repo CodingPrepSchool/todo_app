@@ -1,0 +1,22 @@
+<DOCTYPE>
+    <html>
+        <body>
+            <a href="/">Back to Index Page</a>
+            <form action="/todo/added" method="POST">
+            <h1>Fill Out The Fields In Order To Add A New Task.</h1>
+            {{template_form.hidden_tag() }}
+            <p>
+                {{template_form.task_name.label}}
+                {{template_form.task_name() }}</p>
+            <p>
+                {{template_form.asined_to.label}}
+                {{template_form.asined_to }}</p>
+            <p>
+                {{template_form.due_by.label}}
+                {{template_form.due_by() }}</p>
+            <p>
+                {{template_form.submit() }}</p>
+            </form>
+        </body>
+    </html>
+</DOCTYPE>

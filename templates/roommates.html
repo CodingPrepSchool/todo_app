@@ -1,0 +1,38 @@
+<DOCTYPE>
+    <html>
+        <head>
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='main/roommates.css') }}">
+        </head>
+        <body>
+            <a href="/">Back to Index Page</a>
+            <h1>To Do List</h1>
+            <table>
+                <thead>
+                    <th>Completed</th>
+                    <th>Task Name</th>
+                    <th>Asighned To</th>
+                    <th>Due Date</th>
+                </thead>
+            {% for roommates in rows %}
+                <tr>
+                    <td>
+                        <form action="/complete_task" method="POST">
+                        <input id="task_id" name="task_id" value={{ roommates["task_id"] }} />
+                        {% if roommates["completed"] == 1 %}
+                        <input id="completed_checkbox" name="completed_checkbox" type="checkbox" onchange="submit()" checked/> 
+                        <input id="completed_value" name="completed_value" value=0 />
+                        {% else %}
+                     <input id="completed_checkbox" name="completed_checkbox" type="checkbox" onchange="submit()"/> 
+                     <input id="completed_value" name="completed_value" value=1 /> 
+                     {% endif %}
+                        </form>
+                    </td>
+                    <td>{{roommates["task_name"]}}</td>
+                    <td>{{roommates["roommate_name"]}}</td>
+                    <td>{{roommates["due_date"]}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </body>
+    </html>
+</DOCTYPE>
