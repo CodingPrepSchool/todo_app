@@ -1,0 +1,37 @@
+<DOCTYPE>
+    <html>        
+        <br>
+        <table>
+            <thead>
+                <td><strong>Completed</strong></td>
+                <td><strong>Task Name</strong></td>
+                <td><strong>Assigned To</strong></td>
+                <td><strong>Due Date</strong></td>
+            </thead>
+            <br>
+        {% for roommate in rows %}
+            <tbody>
+                <tr>
+                    <td>
+                        <form action="/completed_task" method="POST">
+                            <input id="task_id" name="task_id" value={{ roommate["id"] }}/>
+                            {% if roommate["completed"] == 1 %}
+                            <input id="completed_checkbox" name="completed_checkbox" type="checkbox" onchange="submit()" checked/> 
+                            <input id="completed_value" name="completed_value" value=0 />
+                            {% else %}
+                            <input id="completed_checkbox" name="completed_checkbox" type="checkbox" onchange="submit()"/> 
+                            <input id="completed_value" name="completed_value" value=1 /> 
+                            {% endif %}
+                        </form>
+                    </td>
+                    <td>{{roommate["name"]}}</td>
+                    <td>{{roommate["roommates_name"]}}</td>
+                    <td>{{roommate["date"]}}</td>
+                </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href = "/">Go back to home page</a>
+        </html>
+</DOCTYPE>

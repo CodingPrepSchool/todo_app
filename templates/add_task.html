@@ -1,0 +1,30 @@
+<DOCTYPE>
+    <html>
+        <head>
+         </head>
+        <a href = "/">Go back to home page</a>
+        <body>
+            <br>
+    <form action="/add_info" method = "POST">
+        <h1>Fill out the Fields in Order to Add a New Task to the list</h1>
+        <br>
+        {{template_form.hidden_tag()}}
+        <p>
+            {{template_form.name.label}}
+            {{template_form.name()}}
+        </p>
+        <p>
+            {{template_form.user_id.label}}
+            {{template_form.user_id}}
+        </p>
+        <p>
+            {{template_form.date.label}}
+            {{template_form.date()}}
+        </p>
+        <p>
+            {{template_form.submit()}}
+        </p>
+    </form>
+        </body>
+    </html>
+</DOCTYPE>
