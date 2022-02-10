@@ -15,7 +15,7 @@ def tdl():
     con = sqlite3.connect("tasks.db")
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("SELECT tasks.completed, tasks.name, roommates.name AS roommates_name, tasks.date FROM roommates JOIN tasks ON tasks.user_id = roommates.user_id")
+    cur.execute("SELECT task.id, tasks.completed, tasks.name, roommates.name AS roommates_name, tasks.date FROM roommates JOIN tasks ON tasks.user_id = roommates.user_id")
     rows = cur.fetchall()
     con.commit()
     con.close
