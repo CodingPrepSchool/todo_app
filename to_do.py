@@ -1,7 +1,7 @@
-from re import template
+
 from flask import Flask, redirect, render_template, request
 import sqlite3
-from todo_app.forms import NewTask, DeleteTask
+from forms import NewTask, DeleteTask
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
